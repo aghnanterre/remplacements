@@ -35,10 +35,11 @@ effectif(){
 # $3 mot de remplacement
 # $4 numéro de l'étape
 # $5 date
+# $6 mot remplacé sous ses différentes formes (dont $2 est une))
 
 echo etape n° $4
 #echo  remplacer::$2::par::$3:: dans le fichier $1
-comptage $tx $2 $5
+comptage $tx $2 $5 $6
 }
 
 remplacement(){	#$1 est le nom du fichier, $2 est le mot à remplacer $3 est la date de l'execution
@@ -51,7 +52,7 @@ cat $1
 
 # 1 "Xxx@s ">"Xxx " puis "Xxx ">"Xxx@s"
 
-effectif $1 `capitalisation $2`@s\  `capitalisation $2`\   $3 $3 1.1	# enlever tous les @s  # etape n°1.1
+effectif $1 `capitalisation $2`@s\  `capitalisation $2`\   $2 $3 1.1	# enlever tous les @s  # etape n°1.1
 effectif $1 `capitalisation $2`\  `capitalisation $2`@s\  1.2	# enlever tous les @s  # etape n°1.2
 
 
